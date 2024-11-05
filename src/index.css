@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(17, 24, 39, 0.9) 25%,
+    rgba(29, 78, 216, 0.15) 50%,
+    rgba(17, 24, 39, 0.9) 75%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-size: 300% 300%;
+  animation: gradient 20s ease infinite;
+}
+
+body {
+  background-color: black;
+  color: white;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile-first responsive text sizing */
+@layer base {
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  h3 {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  p {
+    @apply text-base sm:text-lg;
+  }
+}
+
+/* Phone Input Styles */
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.PhoneInputCountry {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: rgba(29, 78, 216, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.PhoneInputCountry:hover {
+  background: rgba(29, 78, 216, 0.3);
+}
+
+.PhoneInputCountryIcon {
+  width: 1.5rem;
+  height: 1rem;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: transparent !important;
+}
+
+.PhoneInputCountryIcon--border {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+  background-color: transparent !important;
+}
+
+.PhoneInputCountrySelectArrow {
+  margin-left: 0.5rem;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.8) transparent transparent transparent;
+  border-width: 0.25rem 0.25rem 0 0.25rem;
+}
+
+.PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  background: rgba(29, 78, 216, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  outline: none;
+}
+
+.PhoneInputInput:focus {
+  border-color: rgb(59, 130, 246);
+  box-shadow: 0 0 0 1px rgb(59, 130, 246);
+}
+
+.PhoneInputInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive container padding */
+.container {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Improved touch targets on mobile */
+button, 
+a {
+  @apply min-h-[44px] min-w-[44px];
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Better mobile form inputs */
+input,
+select,
+textarea {
+  @apply text-base;
+  font-size: 16px !important;
+}
